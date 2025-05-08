@@ -20,7 +20,8 @@ const EmailAssistant = () => {
     }
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8080/api/email/generate", {
+      console.log(`${import.meta.env.VITE_BACKEND_API}`);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_API}/api/email/generate`, {
         emailContent,
         tone: tone === "Others" ? customTone : tone,
       });
